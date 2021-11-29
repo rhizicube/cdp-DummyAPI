@@ -15,35 +15,6 @@ def index():
 
 #My code starts here 
 
-@app.route("/get_ids_count_by_client", methods=["POST"])
-def get_ids_count_by_client():
-    response = {
-        "status": "success"
-        "code": 200
-    }
-    try:
-        req_obj = request.get_json()
-        client_id = req_obj.get('client_id')
-        if client_id == 100001:
-            response["data"] = [
-                {
-                    "deterministic": 15255, 
-                    "conflicting": 56434
-                }
-            ]
-        else:
-            response["status"] = "Error"
-            response["status"] = 500
-            response["message"] = "Wrong Client Id"
-    except Exception as err:
-        response["status"] = "Error"
-        response["status"] = 500
-        response["status"] = "Something Went Wrong"
-
-    print('get_ids_count_by_client response', response)
-    return response
-
-
 @app.route("/get_users_by_segment", methods=["POST"])
 def get_users_by_segment():
     response = {
@@ -62,17 +33,24 @@ def get_users_by_segment():
 
         if client_id == 100001:
             if block_relation.lower() == "or" or block_relation.lower() == "and":
-                if condition_relation.lower() == "or" or condition_relation.lower() == "and":
-                    if (condition.lower() in ["eq","gt", "lt", "startwith", "contains", "neq"]) and data_type.lower() == "string" and name.lower() =="ort_cross_street" and value.upper =="MOA":
                         response["data"] = [
                             {
                                 "Uid": 15255, 
-                                "attr1": "abc"
-                                "attr2": "def"
+                                "CDP ID" : "cdp-1234321"
+                                "SFSC ID" : "2873ghr87938rh"
+                                "Name": "Abel aaberg"
+                                "Email ID": "abelaaberg@gmail.com"
+                                "Mobile No." : 8888812344
+                                "COuntry" : "United Arab Emirates"
                             }
                             {
-                                "uid": 54654,
-                                "attr1" : "value1"
+                                "Uid": 15255, 
+                                "CDP ID" : "cdp-1234322"
+                                "SFSC ID" : "ewyd837648r3h"
+                                "Name": "Abel aaberg"
+                                "Email ID": "abelaaberg@gmail.com"
+                                "Mobile No." : 8888812344
+                                "COuntry" : "United Arab Emirates"
                             }
                         ]
         else:
@@ -260,10 +238,163 @@ def get_events_by_user():
         if client_id == 100001 or user_id == 5432:
             response["data"] = [
                 {                    
-                    "client_id" : 100002,
-                    "users_id" : 5432,
-                    "name" : "krishan"
-                    "age" : "20"
+                    "today": [
+                            {
+                                "title": "Subscription Payment-Flipcart",
+                                "description": "Bought Sparx Navy Blue SM-2322 Shoes Bought Sparx Navy Blue Sm-2322  Bought Sparx Navy Blue Sm-2322 ",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            },
+                            {
+                                "title": "Subscription Payment-Grammerly",
+                                "description": "Upgraded subscription from monthly to annual upgradedsubscription from monthly, ID,  Registration updated to premium which is annually charged. Registeration updated to Premium which is annually charged",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            },
+                            {
+                                "title": "Subscription Payment-Flipcart",
+                                "description": "Bought Sparx Navy Blue SM-2322 Shoes Bought Sparx Navy Blue Sm-2322  Bought Sparx Navy Blue Sm-2322 ",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            },
+                            {
+                                "title": "Subscription Payment-Grammerly",
+                                "description": "Upgraded subscription from monthly to annual upgradedsubscription from monthly, ID,  Registration updated to premium which is annually charged. Registeration updated to Premium which is annually charged",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            }
+                            
+                                 ],
+                        "yesterday": [
+                           {
+                                "title": "Subscription Payment-Flipcart",
+                                "description": "Bought Sparx Navy Blue SM-2322 Shoes Bought Sparx Navy Blue Sm-2322  Bought Sparx Navy Blue Sm-2322 ",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            },
+                            {
+                                "title": "Subscription Payment-Grammerly",
+                                "description": "Upgraded subscription from monthly to annual upgradedsubscription from monthly, ID,  Registration updated to premium which is annually charged. Registeration updated to Premium which is annually charged",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            },
+                            {
+                                "title": "Subscription Payment-Flipcart",
+                                "description": "Bought Sparx Navy Blue SM-2322 Shoes Bought Sparx Navy Blue Sm-2322  Bought Sparx Navy Blue Sm-2322 ",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            },
+                            {
+                                "title": "Subscription Payment-Grammerly",
+                                "description": "Upgraded subscription from monthly to annual upgradedsubscription from monthly, ID,  Registration updated to premium which is annually charged. Registeration updated to Premium which is annually charged",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            }
+                                    ],
+                        "17/11/2021": [
+                            {
+                                "title": "Subscription Payment-Flipcart",
+                                "description": "Bought Sparx Navy Blue SM-2322 Shoes Bought Sparx Navy Blue Sm-2322  Bought Sparx Navy Blue Sm-2322 ",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            },
+                            {
+                                "title": "Subscription Payment-Grammerly",
+                                "description": "Upgraded subscription from monthly to annual upgradedsubscription from monthly, ID,  Registration updated to premium which is annually charged. Registeration updated to Premium which is annually charged",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            },
+                            {
+                                "title": "Subscription Payment-Flipcart",
+                                "description": "Bought Sparx Navy Blue SM-2322 Shoes Bought Sparx Navy Blue Sm-2322  Bought Sparx Navy Blue Sm-2322 ",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            },
+                            {
+                                "title": "Subscription Payment-Grammerly",
+                                "description": "Upgraded subscription from monthly to annual upgradedsubscription from monthly, ID,  Registration updated to premium which is annually charged. Registeration updated to Premium which is annually charged",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            }
+                                    ],
+                        "16/11/2021": [
+                            {
+                                "title": "Subscription Payment-Flipcart",
+                                "description": "Bought Sparx Navy Blue SM-2322 Shoes Bought Sparx Navy Blue Sm-2322  Bought Sparx Navy Blue Sm-2322 ",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            },
+                            {
+                                "title": "Subscription Payment-Grammerly",
+                                "description": "Upgraded subscription from monthly to annual upgradedsubscription from monthly, ID,  Registration updated to premium which is annually charged. Registeration updated to Premium which is annually charged",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            },
+                            {
+                                "title": "Subscription Payment-Flipcart",
+                                "description": "Bought Sparx Navy Blue SM-2322 Shoes Bought Sparx Navy Blue Sm-2322  Bought Sparx Navy Blue Sm-2322 ",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            },
+                            {
+                                "title": "Subscription Payment-Grammerly",
+                                "description": "Upgraded subscription from monthly to annual upgradedsubscription from monthly, ID,  Registration updated to premium which is annually charged. Registeration updated to Premium which is annually charged",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            }
+                                    ],
+                        "15/11/2021": [
+                            {
+                                "title": "Subscription Payment-Flipcart",
+                                "description": "Bought Sparx Navy Blue SM-2322 Shoes Bought Sparx Navy Blue Sm-2322  Bought Sparx Navy Blue Sm-2322 ",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            },
+                            {
+                                "title": "Subscription Payment-Grammerly",
+                                "description": "Upgraded subscription from monthly to annual upgradedsubscription from monthly, ID,  Registration updated to premium which is annually charged. Registeration updated to Premium which is annually charged",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            },
+                            {
+                                "title": "Subscription Payment-Flipcart",
+                                "description": "Bought Sparx Navy Blue SM-2322 Shoes Bought Sparx Navy Blue Sm-2322  Bought Sparx Navy Blue Sm-2322 ",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            },
+                            {
+                                "title": "Subscription Payment-Grammerly",
+                                "description": "Upgraded subscription from monthly to annual upgradedsubscription from monthly, ID,  Registration updated to premium which is annually charged. Registeration updated to Premium which is annually charged",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            }
+                                    ],
+                        "14/11/2021": [
+                            {
+                                "title": "Subscription Payment-Flipcart",
+                                "description": "Bought Sparx Navy Blue SM-2322 Shoes Bought Sparx Navy Blue Sm-2322  Bought Sparx Navy Blue Sm-2322 ",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            },
+                            {
+                                "title": "Subscription Payment-Grammerly",
+                                "description": "Upgraded subscription from monthly to annual upgradedsubscription from monthly, ID,  Registration updated to premium which is annually charged. Registeration updated to Premium which is annually charged",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            },
+                            {
+                                "title": "Subscription Payment-Flipcart",
+                                "description": "Bought Sparx Navy Blue SM-2322 Shoes Bought Sparx Navy Blue Sm-2322  Bought Sparx Navy Blue Sm-2322 ",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            },
+                            {
+                                "title": "Subscription Payment-Grammerly",
+                                "description": "Upgraded subscription from monthly to annual upgradedsubscription from monthly, ID,  Registration updated to premium which is annually charged. Registeration updated to Premium which is annually charged",
+                                "image_url": "image_url",
+                                "time": "04:21:33"
+                            }
+                        ]
                 }
             ]
         else:
@@ -290,19 +421,115 @@ def get_group_counts_by_user():
         client_id = req_obj.get('client_id')
         user_id = req_obj.get('userid')
         da_name = req_obj.get('da_name')
-        if client_id == 100001 or user_id == 5432 or da_name == "total_order_value":
-            response["data"] = [
-                {                    
-                    "client_id" : 100002,
-                    "users_id" : 5432,
-                    "values" : 11089,
-                    "group_values" : {
-                        "Basketball" : 110,
-                        "Football" : 324,
-                        "Volleyball" : 573,
+        group_by = req_obj.get('group_by')
+        if client_id == 100001 or user_id == 5432:
+            if da_name == "revenue" and group_by.lower() == "time":
+                response["data"] = [
+                    {                    
+                        "client_id" : 100002,
+                        "users_id" : 5432,
+                        "values" : 370000,
+                        "group_values" : {
+                            "2010" : 40000,
+                            "2011" : 40000,
+                            "2012" : 22000,
+                            "2013" : 31000,
+                            "2014" : 25000,
+                            "2015" : 25000,
+                            "2016" : 30000,
+                            "2017" : 38000,
+                            "2018" : 40000,
+                            "2019" : 22000,
+                            "2020" : 32000,
+                            "2021" : 25000
+                        }
                     }
-                }
-            ]
+                ]
+            elif da_name == "revenue" and group_by.lower() == "category":
+                response["data"] = [
+                    {                    
+                        "client_id" : 100002,
+                        "users_id" : 5432,
+                        "values" : 582,
+                        "group_values" : {
+                            "1st Jan 2013 12AM" : 130
+                            "1st Jan 2016 12AM" : 53
+                            "1st Jan 2019 12AM" : 184
+                            "1st Jan 2070 12AM" : 180
+                            "1st Jan 2070 12AM" : 35
+                        }
+                    }
+                ]
+            elif da_name == "revenue" and group_by.lower() == "product":
+                response["data"] = [
+                    {                    
+                        "client_id" : 100002,
+                        "users_id" : 5432,
+                        "values" : 370000,
+                        "group_values" : {
+                            "key1" : "value1"
+                        }
+                    }
+                ]
+            elif da_name == "revenue" and group_by.lower() == "channel":
+                response["data"] = [
+                    {                    
+                        "client_id" : 100002,
+                        "users_id" : 5432,
+                        "values" : 370000,
+                        "group_values" : {
+                            "key1" : "value1"
+                        }
+                    }
+                ]
+            elif da_name == "revenue" and group_by.lower() == "order":
+                response["data"] = [
+                    {                    
+                        "client_id" : 100002,
+                        "users_id" : 5432,
+                        "values" : 370000,
+                        "group_values" : {
+                            "key1" : "value1"
+                        }
+                    }
+                ]
+            elif da_name == "product" and group_by.lower() == "category":
+                response["data"] = [
+                    {                    
+                        "client_id" : 100002,
+                        "users_id" : 5432,
+                        "values" : 75000,
+                        "group_values" : {
+                            "Mobile and Computers" : "7.5K",
+                            "Tv, Appliances, Electronics" : "7.5K",
+                            "Fashion" : "7.5K",
+                            "2013" : "7.5K",
+                            "Home,Kitchen,Pets" : "7.5K",
+                            "Beauty Health Grocery" : "7.5K",
+                            "Sports Fitness Bags Luggages" : "7.5K",
+                            "Toy's Baby Products Kid's Fashion" : "7.5K",
+                            "Cars Motorbike Industrial" : "7.5K",
+                            "Books" : "7.5K",
+                            "Others" : "7.5K",
+                            "2021" : "7.5K"
+                        }
+                    }
+                ]
+            elif da_name == "product" and group_by.lower() == "product":
+                response["data"] = [
+                    {                    
+                        "client_id" : 100002,
+                        "users_id" : 5432,
+                        "values" : 7500,
+                        "group_values" : {
+                            "Mobile and Computers" : "7.5K"
+                        }
+                    }
+                ]
+            else :
+                response["status"] = "Error"
+                response["status"] = 500
+                response["message"] = "Wrong Database name or Group By"
         else:
             response["status"] = "Error"
             response["status"] = 500
