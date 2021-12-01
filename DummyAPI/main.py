@@ -249,8 +249,8 @@ def get_events_by_user():
     }
     try:
         req_obj = request.get_json()
-        client_id = req_obj.get('client_id')
-        user_id = req_obj.get('userid')
+        client_id = req_obj.get('cid')
+        user_id = req_obj.get('uid')
         if client_id == 100001 or user_id == 5432:
             response["data"] = [
                 {                    
