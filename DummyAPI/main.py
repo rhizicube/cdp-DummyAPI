@@ -430,20 +430,19 @@ def get_events_by_user():
 def get_group_counts_by_user():
     response = {
         "status": "success",
-        "code": 200
+        "code": 200,
+        "client_id" : 100002,
+        "users_id" : 5432,
     }
     try:
         req_obj = request.get_json()
-        client_id = req_obj.get('client_id')
-        user_id = req_obj.get('userid')
+        client_id = req_obj.get('cid')
+        user_id = req_obj.get('uid')
         da_name = req_obj.get('da_name')
         group_by = req_obj.get('group_by')
         if client_id == 100001 or user_id == 5432:
-            if da_name == "revenue" and group_by.lower() == "time":
-                response["data"] = [
-                    {                    
-                        "client_id" : 100002,
-                        "users_id" : 5432,
+            if da_name == "revenue" and group_by.lower() in ["year","day","quarter","month"]:
+                response["data"] = {                    
                         "values" : 370000,
                         "group_values" : {
                             "2010" : 40000,
@@ -460,12 +459,8 @@ def get_group_counts_by_user():
                             "2021" : 25000
                         }
                     }
-                ]
             elif da_name == "revenue" and group_by.lower() == "category":
-                response["data"] = [
-                    {                    
-                        "client_id" : 100002,
-                        "users_id" : 5432,
+                response["data"] = {                    
                         "values" : 582,
                         "group_values" : {
                             "1st Jan 2013 12AM" : 130,
@@ -475,45 +470,29 @@ def get_group_counts_by_user():
                             "1st Jan 2070 12AM" : 35
                         }
                     }
-                ]
             elif da_name == "revenue" and group_by.lower() == "product":
-                response["data"] = [
-                    {                    
-                        "client_id" : 100002,
-                        "users_id" : 5432,
+                response["data"] = {                    
                         "values" : 370000,
                         "group_values" : {
                             "key1" : "value1"
                         }
                     }
-                ]
             elif da_name == "revenue" and group_by.lower() == "channel":
-                response["data"] = [
-                    {                    
-                        "client_id" : 100002,
-                        "users_id" : 5432,
+                response["data"] = {                    
                         "values" : 370000,
                         "group_values" : {
                             "key1" : "value1"
                         }
                     }
-                ]
             elif da_name == "revenue" and group_by.lower() == "order":
-                response["data"] = [
-                    {                    
-                        "client_id" : 100002,
-                        "users_id" : 5432,
+                response["data"] = {
                         "values" : 370000,
                         "group_values" : {
                             "key1" : "value1"
                         }
                     }
-                ]
             elif da_name == "product" and group_by.lower() == "category":
-                response["data"] = [
-                    {                    
-                        "client_id" : 100002,
-                        "users_id" : 5432,
+                response["data"] = {                    
                         "values" : 75000,
                         "group_values" : {
                             "Mobile and Computers" : "7.5K",
@@ -530,18 +509,13 @@ def get_group_counts_by_user():
                             "2021" : "7.5K"
                         }
                     }
-                ]
             elif da_name == "product" and group_by.lower() == "product":
-                response["data"] = [
-                    {                    
-                        "client_id" : 100002,
-                        "users_id" : 5432,
+                response["data"] = {                    
                         "values" : 7500,
                         "group_values" : {
                             "Mobile and Computers" : "7.5K"
                         }
                     }
-                ]
             else :
                 response["status"] = "Error"
                 response["status"] = 500
