@@ -256,10 +256,6 @@ def get_identifier_count_by_client():
 
 @app.route("/get_identifiers_by_user", methods=["POST"])
 def get_identifiers_by_user():
-    response = {
-        "status": "success",
-        "code": 200
-    }
     try:
         req_obj = request.get_json()
         client_id = req_obj.get('cid')
@@ -498,12 +494,6 @@ def get_events_by_user():
 
 @app.route("/get_group_counts_by_user", methods=["POST"])
 def get_group_counts_by_user():
-    response = {
-        "status": "success",
-        "code": 200,
-        "client_id" : 100002,
-        "users_id" : 5432,
-    }
     try:
         req_obj = request.get_json()
         client_id = req_obj.get('cid')
@@ -517,6 +507,7 @@ def get_group_counts_by_user():
                         "msg" : "Success" ,
                         "status" : "success" ,
                         "client_id" : 100001,
+                        "User ID" : 5432,
                         "data" : {
                             "values" : 370000,
                             "group_values" : {
