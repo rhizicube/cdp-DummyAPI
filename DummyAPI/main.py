@@ -17,13 +17,9 @@ def index():
 
 @app.route("/get_users_by_segment", methods=["POST"])
 def get_users_by_segment():
-    response = {
-        "status": "success",
-        "code": 200
-    }
     try:
         req_obj = request.get_json()
-        client_id = req_obj.get('client_id')
+        client_id = req_obj.get('cid')
         block_relation = req_obj.get('block_relation')
         condition_relation = req_obj.get('condition_relation')
         condition = req_obj.get('condition')
@@ -31,30 +27,39 @@ def get_users_by_segment():
         name = req_obj.get('name')
         value = req_obj.get('value')
 
-        response["data"] = [
-            {
-                "Uid": 15255, 
-                "CDP ID" : "cdp-1234321",
-                "SFSC ID" : "2873ghr87938rh",
-                "Name": "Abel aaberg",
-                "Email ID": "abelaaberg@gmail.com",
-                "Mobile No." : 8888812344,
-                "COuntry" : "United Arab Emirates"
-            },
-            {
-                "Uid": 15255, 
-                "CDP ID" : "cdp-1234322",
-                "SFSC ID" : "ewyd837648r3h",
-                "Name": "Abel aaberg",
-                "Email ID": "abelaaberg@gmail.com",
-                "Mobile No." : 8888812344,
-                "COuntry" : "United Arab Emirates"
-            }
-        ]
+        response = {
+                        "code": 200,
+                        "msg" : "Success" ,
+                        "status" : "success" ,
+                        "cid" : 100001,
+                        "uid" : 559,
+                        "data":[ 
+                            {
+                                "Uid": 15255, 
+                                "CDP ID" : "cdp-1234321",
+                                "SFSC ID" : "2873ghr87938rh",
+                                "Name": "Abel aaberg",
+                                "Email ID": "abelaaberg@gmail.com",
+                                "Mobile No." : 8888812344,
+                                "COuntry" : "United Arab Emirates"
+                            },
+                            {
+                                "Uid": 15255, 
+                                "CDP ID" : "cdp-1234322",
+                                "SFSC ID" : "ewyd837648r3h",
+                                "Name": "Abel aaberg",
+                                "Email ID": "abelaaberg@gmail.com",
+                                "Mobile No." : 8888812344,
+                                "COuntry" : "United Arab Emirates"
+                            }
+                        ]
+                    }
     except Exception as err:
-        response["status"] = "Error"
-        response["status"] = 500
-        response["status"] = "Something Went Wrong"
+        response = {
+            "status" : "Error",
+            "code" : 500,
+            "status" : "Something Went Wrong"
+                }
 
     print('get_users_by_segment response', response)
     return response
@@ -62,18 +67,21 @@ def get_users_by_segment():
 
 @app.route("/get_user_attributes", methods=["POST"])
 def get_user_attributes():
-    respose = {}
     try:
         req_obj = request.get_json()
         client_id = req_obj.get('cid')
         user_id = req_obj.get('uid')
-        if client_id == 100001 or user_id == 5432:
-            response = {
-                    "cid": 100001, 
-                    "uid": 5432, 
+    
+        response = {
+                "code": 200,
+                "msg" : "Success" ,
+                "status" : "success" ,
+                "cid": 100001, 
+                "uid": 5432, 
+                "data" : { 
                     "direct_attrs": {
-                        "name": "krishan", 
-                        "age": "20"
+                    "name": "krishan", 
+                    "age": "20"
                     },
                     "derived_attrs": {
                         "deterministic":{
@@ -88,14 +96,18 @@ def get_user_attributes():
                         }
                     }
                 }
-            
-        else:
-            respose = {}
+            }
+    except Exception as err:
+        print(err)
+        response = {"status" : "Error",
+                    "code" : 500,
+                    "status" : "Something Went Wrong"
+                }
             # response["status"] = "Error"
             # response["status"] = 500
             # response["message"] = "Wrong Client Id or User ID"
-    except Exception as err:
-        response  = {}
+    #except Exception as err:
+        #response  = {}
         # response["status"] = "Error"
         # response["status"] = 500
         # response["status"] = "Something Went Wrong"
@@ -106,88 +118,114 @@ def get_user_attributes():
 
 @app.route("/get_products_by_event", methods=["POST"])
 def get_products_by_event():
-    response = {
-        "status": "success",
-        "code": 200
-    }
     try:
         req_obj = request.get_json()
-        client_id = req_obj.get('client_id')
-        user_id = req_obj.get('userid')
-        event_name = req.obj('event_name')
-        order_by_date = req.obj('order_by_date')
-        nrecs = req.obj('nrecs')
-        if client_id == 100001 or user_id == 1:
-            response["data"] = [
-                {
-                    "product_id": "ab123",
-                    "product_name" : "Stethoscope",
-                    "product_desc" : "Health",
-                    "image_url" : "www.image.com/abc1",
-                    "event_date_time" : "19:09:34 26/11/2021 "
-                },
-                {
-                    "product_id" : "dbvb154",
-                    "product_name" : "Basketball",
-                    "product_desc" : "Sports",
-                    "image_url" : "www.image.com/dbb",
-                    "event_date_time" : "12:03:24 12/01/2021 "
-                }
-            ]
-        else:
-            response["status"] = "Error"
-            response["status"] = 500
-            response["message"] = "Wrong Client Id or User ID"
+        client_id = req_obj.get('cid')
+        user_id = req_obj.get('uid')
+        #event_name = req.obj('event_name')
+        #order_by_date = req.obj('order_by_date')
+        #nrecs = req.obj('nrecs')
+    
+        response = {
+                        "code": 200,
+                        "msg" : "Success" ,
+                        "status" : "success" ,
+                        "data" : [ 
+                            {
+                                "product_id": "ab123",
+                                "product_name" : "Stethoscope",
+                                "product_desc" : "Health",
+                                "image_url" : "www.image.com/abc1",
+                                "event_date_time" : "19:09:34 26/11/2021 "
+                            },
+                            {
+                                "product_id" : "dbvb154",
+                                "product_name" : "Basketball",
+                                "product_desc" : "Sports",
+                                "image_url" : "www.image.com/dbb",
+                                "event_date_time" : "12:03:24 12/01/2021 "
+                            }
+                        ]
+                    }
     except Exception as err:
-        response["status"] = "Error"
-        response["status"] = 500
-        response["status"] = "Something Went Wrong"
+        print(err)
+        response = {
+            "status" : "Error",
+            "code" : 500,
+            "status" : "Something Went Wrong"
+                }
 
     print('get_products_by_event response', response)
     return response
 
-
+#changes in here
 @app.route("/get_user_count_by_client", methods=["POST"])
 def get_user_count_by_client ():
-    response = {
-        "status": "success",
-        "code": 200
-    }
     try:
         print(request.headers)
         req_obj = request.get_json()
         print(req_obj)
-        client_id = req_obj.get('client_id')
-        response["data"] = {
-                "users" : 11000
-            }
-        
+        client_id = req_obj.get('cid')
+        group_by= req_obj.get('group_by')
+        nrecs = req_obj.get('nrecs')
+    
+        response = {
+                    "code": 200,
+                    "msg" : "Success" ,
+                    "status" : "success" ,
+                    "data":{ 
+                        "value": 1100000, 
+                        "group_values": { 
+                            "12-2021": 100000, 
+                            "11-2021": 280000, 
+                            "10-2021": 160000, 
+                        } 
+                    }
+                }
     except Exception as err:
         print(err)
-        response["status"] = "Error"
-        response["status"] = 500
-        response["status"] = "Something Went Wrong"
-
+        response = {"status" : "Error",
+                    "code" : 500,
+                    "status" : "Something Went Wrong"
+                }
     print('get_user_count_by_client response', response)
     return response
+#ends here
+
 
 @app.route("/get_identifier_count_by_client",methods=["POST"])
 def get_identifier_count_by_client():
-    response = {
-        "status": "success",
-        "code": 200
-    }
     try:
         req_obj = request.get_json()
-        client_id = req_obj.get('client_id')
-        response["data"] = {
-                "deterministic": 1500000,
-                "conflicting": 250000
-            }
+        client_id = req_obj.get('cid')
+        response = {
+                    "code": 700,
+                    "msg" : "Success" ,
+                    "status" : "success" ,
+                    "data":{ 
+                        "deterministic":{
+                            "value": 1100000, 
+                            "group_values": { 
+                                "12-2021": 100000, 
+                                "11-2021": 280000, 
+                                "10-2021": 160000, 
+                                    } 
+                                }, 
+                                "conflicting":{ 
+                                    "value": 1200000, 
+                                    "group_values": { 
+                                        "12-2021": 120000, 
+                                        "11-2021": 290000, 
+                                        "10-2021": 190000,
+                                        } 
+                                    } 
+                            }
+                        }
     except Exception as err:
-        response["status"] = "Error"
-        response["status"] = 500
-        response["status"] = "Something Went Wrong"
+        response = {"status" : "Error",
+                    "code" : 500,
+                    "status" : "Something Went Wrong"
+                }
 
     print('get_identifier_count_by_client response', response)
     return response
@@ -195,17 +233,15 @@ def get_identifier_count_by_client():
 
 @app.route("/get_identifiers_by_user", methods=["POST"])
 def get_identifiers_by_user():
-    response = {
-        "status": "success",
-        "code": 200
-    }
     try:
         req_obj = request.get_json()
-        client_id = req_obj.get('client_id')
-        user_id = req_obj.get('userid')
-        if client_id == 100001 or user_id == 559:
-            response["data"] = [
-                {
+        client_id = req_obj.get('cid')
+        user_id = req_obj.get('uid')
+        response= {
+                "code": 700,
+                "msg" : "Success" ,
+                "status" : "success" ,
+                "data":{
                     "deterministic": [
                         { 
                             "id": "udit@gmail.com", 
@@ -219,7 +255,7 @@ def get_identifiers_by_user():
                     "conflicting": [
                         {
                             "id": "9734747659", 
-                             "type": "mo" 
+                            "type": "mo" 
                         }, 
                         { 
                             "id": "euf87347dsf87df", 
@@ -227,15 +263,13 @@ def get_identifiers_by_user():
                         }
                     ]
                 }
-            ]
-        else:
-            response["status"] = "Error"
-            response["status"] = 500
-            response["message"] = "Wrong Client Id or User ID"
+            }
     except Exception as err:
-        response["status"] = "Error"
-        response["status"] = 500
-        response["status"] = "Something Went Wrong"
+        print(err)
+        response = {"status" : "Error",
+                    "code" : 500,
+                    "status" : "Something Went Wrong"
+                }
 
     print('get_identifiers_by_user response', response)
     return response
@@ -243,17 +277,16 @@ def get_identifiers_by_user():
 
 @app.route("/get_events_by_user", methods=["POST"])
 def get_events_by_user():
-    response = {
-        "status": "success",
-        "code": 200
-    }
     try:
         req_obj = request.get_json()
         client_id = req_obj.get('cid')
         user_id = req_obj.get('uid')
-        if client_id == 100001 or user_id == 5432:
-            response["data"] = [
-                {                    
+        response = {
+            "code": 700,
+            "msg" : "Success" ,
+            "status" : "success" ,
+            "client_id" : 100001,
+            "data" : {                    
                     "today": [
                             {
                                 "title": "Subscription Payment-Flipcart",
@@ -280,9 +313,9 @@ def get_events_by_user():
                                 "time": "04:21:33"
                             }
                             
-                                 ],
+                                ],
                         "yesterday": [
-                           {
+                        {
                                 "title": "Subscription Payment-Flipcart",
                                 "description": "Bought Sparx Navy Blue SM-2322 Shoes Bought Sparx Navy Blue Sm-2322  Bought Sparx Navy Blue Sm-2322 ",
                                 "image_url": "image_url",
@@ -412,15 +445,13 @@ def get_events_by_user():
                             }
                         ]
                 }
-            ]
-        else:
-            response["status"] = "Error"
-            response["status"] = 500
-            response["message"] = "Wrong Client Id or User ID"
+        }
     except Exception as err:
-        response["status"] = "Error"
-        response["status"] = 500
-        response["status"] = "Something Went Wrong"
+        print(err)
+        response = {"status" : "Error",
+                    "code" : 500,
+                    "status" : "Something Went Wrong"
+                }
 
     print('get_events_by_user response', response)
     return response
@@ -428,21 +459,20 @@ def get_events_by_user():
 
 @app.route("/get_group_counts_by_user", methods=["POST"])
 def get_group_counts_by_user():
-    response = {
-        "status": "success",
-        "code": 200,
-        "client_id" : 100002,
-        "users_id" : 5432,
-    }
     try:
         req_obj = request.get_json()
         client_id = req_obj.get('cid')
         user_id = req_obj.get('uid')
         da_name = req_obj.get('da_name')
         group_by = req_obj.get('group_by')
-        if client_id == 100001 or user_id == 5432:
-            if da_name == "revenue" and group_by.lower() in ["year","day","quarter","month"]:
-                response["data"] = {                    
+        if da_name == "revenue" and group_by.lower() in ["year","day","quarter","month"]:
+            response = {                    
+                    "code": 700,
+                    "msg" : "Success" ,
+                    "status" : "success" ,
+                    "client_id" : 100001,
+                    "User ID" : 5432,
+                    "data" : {
                         "values" : 370000,
                         "group_values" : {
                             "2010" : 40000,
@@ -459,8 +489,16 @@ def get_group_counts_by_user():
                             "2021" : 25000
                         }
                     }
-            elif da_name == "revenue" and group_by.lower() == "category":
-                response["data"] = {                    
+                    
+                    
+                }
+        elif da_name == "revenue" and group_by.lower() == "category":
+            response= {
+                    "code": 700,
+                    "msg" : "Success" ,
+                    "status" : "success" ,
+                    "client_id" : 100001,
+                    "data" : {                   
                         "values" : 582,
                         "group_values" : {
                             "1st Jan 2013 12AM" : 130,
@@ -470,64 +508,95 @@ def get_group_counts_by_user():
                             "1st Jan 2070 12AM" : 35
                         }
                     }
-            elif da_name == "revenue" and group_by.lower() == "product":
-                response["data"] = {                    
-                        "values" : 370000,
-                        "group_values" : {
-                            "key1" : "value1"
-                        }
+                }
+        elif da_name == "revenue" and group_by.lower() == "product":
+            response = {
+                "code": 700,
+                "msg" : "Success" ,
+                "status" : "success" ,
+                "client_id" : 100001,
+                "data" : {                     
+                    "values" : 370000,
+                    "group_values" : {
+                        "key1" : 646,
+                        "key2" : 983,
+                        "key3" : 132
                     }
-            elif da_name == "revenue" and group_by.lower() == "channel":
-                response["data"] = {                    
-                        "values" : 370000,
-                        "group_values" : {
-                            "key1" : "value1"
-                        }
+                }
+            }
+        elif da_name == "revenue" and group_by.lower() == "channel":
+            response = {
+                "code": 700,
+                "msg" : "Success" ,
+                "status" : "success" ,
+                "client_id" : 100001,
+                "data" : {                     
+                    "values" : 370000,
+                    "group_values" : {
+                        "key1" : 446,
+                        "key2" : 133,
+                        "key3" : 464
                     }
-            elif da_name == "revenue" and group_by.lower() == "order":
-                response["data"] = {
-                        "values" : 370000,
-                        "group_values" : {
-                            "key1" : "value1"
-                        }
+                }
+            }
+        elif da_name == "revenue" and group_by.lower() == "order":
+            response = {
+                "code": 700,
+                "msg" : "Success" ,
+                "status" : "success" ,
+                "client_id" : 100001,
+                "data" : {                     
+                    "values" : 370000,
+                    "group_values" : {
+                        "key1" : 446,
+                        "key2" : 133,
+                        "key3" : 464
                     }
-            elif da_name == "product" and group_by.lower() == "category":
-                response["data"] = {                    
-                        "values" : 75000,
-                        "group_values" : {
-                            "Mobile and Computers" : "7.5K",
-                            "Tv, Appliances, Electronics" : "7.5K",
-                            "Fashion" : "7.5K",
-                            "2013" : "7.5K",
-                            "Home,Kitchen,Pets" : "7.5K",
-                            "Beauty Health Grocery" : "7.5K",
-                            "Sports Fitness Bags Luggages" : "7.5K",
-                            "Toy's Baby Products Kid's Fashion" : "7.5K",
-                            "Cars Motorbike Industrial" : "7.5K",
-                            "Books" : "7.5K",
-                            "Others" : "7.5K",
-                            "2021" : "7.5K"
-                        }
+                }
+            }
+        elif da_name == "product" and group_by.lower() == "category":
+            response = {
+                "code": 700,
+                "msg" : "Success" ,
+                "status" : "success" ,
+                "client_id" : 100001,
+                "data" : {                    
+                    "values" : 75000,
+                    "group_values" : {
+                        "Mobile and Computers" : 7.5,
+                        "Tv, Appliances, Electronics" : 7.5,
+                        "Fashion" : 7.5,
+                        "2013" : 7.5,
+                        "Home,Kitchen,Pets" : 7.5,
+                        "Beauty Health Grocery" : 7.5,
+                        "Sports Fitness Bags Luggages" : 7.5,
+                        "Toy's Baby Products Kid's Fashion" : 7.5,
+                        "Cars Motorbike Industrial" : 7.5,
+                        "Books" : 7.5,
+                        "Others" : 7.5,
+                        "2021" : 7.5
                     }
-            elif da_name == "product" and group_by.lower() == "product":
-                response["data"] = {                    
-                        "values" : 7500,
-                        "group_values" : {
-                            "Mobile and Computers" : "7.5K"
-                        }
+                }
+            }
+        elif da_name == "product" and group_by.lower() == "product":
+            response = {
+                "code": 700,
+                "msg" : "Success" ,
+                "status" : "success" ,
+                "client_id" : 100001,
+                "data" : {                    
+                    "values" : 7500,
+                    "group_values" : {
+                        "Mobile and Computers" : 7.5
                     }
-            else :
-                response["status"] = "Error"
-                response["status"] = 500
-                response["message"] = "Wrong Database name or Group By"
-        else:
-            response["status"] = "Error"
-            response["status"] = 500
-            response["message"] = "Wrong Client Id or User ID or da_name"
+                }
+            }
     except Exception as err:
-        response["status"] = "Error"
-        response["status"] = 500
-        response["status"] = "Something Went Wrong"
+        print(err)
+        response = {"status" : "Error",
+                    "code" : 500,
+                    "status" : "Something Went Wrong"
+                }
 
     print('get_group_counts_by_user response', response)
     return response
@@ -535,31 +604,29 @@ def get_group_counts_by_user():
 
 @app.route("/get_best_day_time", methods=["POST"])
 def get_best_day_time():
-    response = {
-        "status": "success",
-        "code": 200
-    }
     try:
         req_obj = request.get_json()
-        client_id = req_obj.get('client_id')
-        user_id = req_obj.get('userid')
-        if client_id == 100001 or user_id == 5432:
-            response["data"] = [
-                {                    
-                    "client_id" : 100001,
+        client_id = req_obj.get('cid')
+        user_id = req_obj.get('uid')
+        
+        response = {
+                "code": 700,
+                "msg" : "Success" ,
+                "status" : "success" ,
+                "client_id" : 100001,
+                "data" : {
                     "users_id" : 5432,
                     "day" : "Friday",
                     "time_Window" : "15:24:10 PM - 15:34:52 PM"
                 }
-            ]
-        else:
-            response["status"] = "Error"
-            response["status"] = 500
-            response["message"] = "Wrong Client Id or User ID"
+        }
     except Exception as err:
-        response["status"] = "Error"
-        response["status"] = 500
-        response["status"] = "Something Went Wrong"
+        print(err)
+        response = {
+            "status" : "Error",
+            "code" : 500,
+            "status" : "Something Went Wrong"
+                }
 
     print('get_best_day_time response', response)
     return response
@@ -570,4 +637,4 @@ def get_best_day_time():
 
 if __name__ == '__main__':
     # app.run(host='0.0.0.0', port=5002)
-    app.run(debug=True, port=1234)
+    app.run(debug=True,host="0.0.0.0", port=1234)
