@@ -28,7 +28,7 @@ def get_users_by_segment():
         value = req_obj.get('value')
 
         response = {
-                        "code": 200,
+                        "code": 700,
                         "msg" : "Success" ,
                         "status" : "success" ,
                         "cid" : 100001,
@@ -73,7 +73,7 @@ def get_user_attributes():
         user_id = req_obj.get('uid')
     
         response = {
-                "code": 200,
+                "code": 700,
                 "msg" : "Success" ,
                 "status" : "success" ,
                 "cid": 100001, 
