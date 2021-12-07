@@ -93,7 +93,9 @@ def get_user_attributes():
                             "total_order_count": 150,
                             "total_order_value": 17780,
                             "average_order_value": 197.80
-                        }
+                        },
+                        "category_preference":"Books",
+                        "product_preference":"Fiction"
                     }
                 }
             }
