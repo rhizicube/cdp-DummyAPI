@@ -566,19 +566,60 @@ def get_group_counts_by_user():
                 "data" : {                    
                     "values" : 75000,
                     "group_values" : {
-                        "Mobile and Computers" : 7.5,
-                        "Tv, Appliances, Electronics" : 7.5,
-                        "Fashion" : 7.5,
-                        "2013" : 7.5,
-                        "Home,Kitchen,Pets" : 7.5,
-                        "Beauty Health Grocery" : 7.5,
-                        "Sports Fitness Bags Luggages" : 7.5,
-                        "Toy's Baby Products Kid's Fashion" : 7.5,
-                        "Cars Motorbike Industrial" : 7.5,
-                        "Books" : 7.5,
-                        "Others" : 7.5,
-                        "2021" : 7.5
-                    }
+                        "key1":{
+                            "color": "#E08AFA",
+                            "name": "Purple Slice",
+                            "y": 20
+                        },
+                        "key2":
+                        {
+                            "color": "#00E4C0",
+                            "name": "Green Slice",
+                            "y": 20
+                        },
+                        "key3":
+                        {
+                            "color": "#FFCFA4",
+                            "name": "Peach Slice",
+                            "y":20
+                        },
+                        "key4":
+                        {
+                            "color": "#FFE995",
+                            "name": "Yellow Slice",
+                            "y": 20
+                        },
+                        "key5":
+                        {
+                            "color": "#FF839F",
+                            "name": "Red Slice",
+                            "y":20
+                        },
+                        "key6":
+                        {
+                            "color": "#18C2FF",
+                            "name": "Blue Slice",
+                            "y": 20
+                        },
+                        "key8":
+                        {
+                            "color": "#03AFB9",
+                            "name": "Cyan Slice",
+                            "y": 20
+                        },
+                        "key9":
+                        {
+                            "color": "#FCA2A2",
+                            "name": "Pink Slice",
+                            "y": 20
+                        },
+                        "keu10":
+                        {
+                            "color": "#A2B1FC",
+                            "name": "Indigo Slice",
+                            "y":20
+                        }
+                    },
                 }
             }
         elif da_name == "product" and group_by.lower() == "product":
@@ -589,9 +630,61 @@ def get_group_counts_by_user():
                 "client_id" : 100001,
                 "data" : {                    
                     "values" : 7500,
-                    "group_values" : {
-                        "Mobile and Computers" : 7.5
-                    }
+                   "group_values" : {
+                        "key1":{
+                            "color": "#E08AFA",
+                            "name": "Purple Slice",
+                            "y": 20
+                        },
+                        "key2":
+                        {
+                            "color": "#00E4C0",
+                            "name": "Green Slice",
+                            "y": 20
+                        },
+                        "key3":
+                        {
+                            "color": "#FFCFA4",
+                            "name": "Peach Slice",
+                            "y":20
+                        },
+                        "key4":
+                        {
+                            "color": "#FFE995",
+                            "name": "Yellow Slice",
+                            "y": 20
+                        },
+                        "key5":
+                        {
+                            "color": "#FF839F",
+                            "name": "Red Slice",
+                            "y":20
+                        },
+                        "key6":
+                        {
+                            "color": "#18C2FF",
+                            "name": "Blue Slice",
+                            "y": 20
+                        },
+                        "key8":
+                        {
+                            "color": "#03AFB9",
+                            "name": "Cyan Slice",
+                            "y": 20
+                        },
+                        "key9":
+                        {
+                            "color": "#FCA2A2",
+                            "name": "Pink Slice",
+                            "y": 20
+                        },
+                        "keu10":
+                        {
+                            "color": "#A2B1FC",
+                            "name": "Indigo Slice",
+                            "y":20
+                        }
+                    },
                 }
             }
     except Exception as err:
