@@ -129,27 +129,47 @@ def get_products_by_event():
         #order_by_date = req.obj('order_by_date')
         #nrecs = req.obj('nrecs')
     
-        response = {
-                        "code": 200,
-                        "msg" : "Success" ,
-                        "status" : "success" ,
-                        "data" : [ 
-                            {
-                                "product_id": "ab123",
-                                "product_name" : "Stethoscope",
-                                "product_desc" : "Health",
-                                "image_url" : "www.image.com/abc1",
-                                "event_date_time" : "19:09:34 26/11/2021 "
-                            },
-                            {
-                                "product_id" : "dbvb154",
-                                "product_name" : "Basketball",
-                                "product_desc" : "Sports",
-                                "image_url" : "www.image.com/dbb",
-                                "event_date_time" : "12:03:24 12/01/2021 "
-                            }
-                        ]
-                    }
+        response= {
+                  "code": 200,
+                  "msg" : "Success" ,
+                  "status" : "success" ,
+		          "client_id" : 100001,
+		          "uid": 5432,
+                  "data":{
+                    "deterministic": [
+                        { 
+                            "pid":56544, 
+                            "pname":"Veg-Pizza", 
+                            "description":"This is a veg pizza", 
+                            "purchase_date":"2021-11-21 13:34", 
+                            "image_url":"http://pizzahut-xyz.com/images/img1.png" 
+                        }, 
+                        { 
+                           "pid":56545, 
+                           "pname":"NVeg-Pizza", 
+                           "description":"This is a non veg pizza", 
+                           "purchase_date":"2021-11-11 13:34", 
+                           "image_url":"http://pizzahut-xyz.com/images/img2.png" 
+                        }
+                        ], 
+                    "conflicting": [
+                        { 
+                            "pid":56544, 
+                            "pname":"Veg-Pizza", 
+                            "description":"This is a veg pizza", 
+                            "purchase_date":"2021-11-21 13:34", 
+                            "image_url":"http://pizzahut-xyz.com/images/img1.png" 
+                        }, 
+                        { 
+                           "pid":56545, 
+                           "pname":"NVeg-Pizza", 
+                           "description":"This is a non veg pizza", 
+                           "purchase_date":"2021-11-11 13:34", 
+                           "image_url":"http://pizzahut-xyz.com/images/img2.png" 
+                        }
+                    ]
+                }
+            }
     except Exception as err:
         print(err)
         response = {
