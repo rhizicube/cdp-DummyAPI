@@ -142,14 +142,64 @@ def get_products_by_event():
                             "pname":"Veg-Pizza", 
                             "description":"This is a veg pizza", 
                             "purchase_date":"2021-11-21 13:34", 
-                            "image_url":"http://pizzahut-xyz.com/images/img1.png" 
+                            "price": 100,
+                            "image_url":"https://www.dominos.co.in/files/items/Farmhouse.jpg" 
                         }, 
                         { 
                            "pid":56545, 
                            "pname":"NVeg-Pizza", 
                            "description":"This is a non veg pizza", 
                            "purchase_date":"2021-11-11 13:34", 
-                           "image_url":"http://pizzahut-xyz.com/images/img2.png" 
+                           "price":150,
+                           "image_url":"https://www.dominos.co.in/files/items/Dominator.jpg" 
+                        },
+                        { 
+                            "pid":56546, 
+                            "pname":"Veg-Pizza", 
+                            "description":"", 
+                            "purchase_date":"2021-11-21 13:34", 
+                            "price": 100,
+                            "image_url":"https://www.dominos.co.in/files/items/Farmhouse.jpg" 
+                        }, 
+                        { 
+                           "pid":56547, 
+                           "pname":"NVeg-Pizza", 
+                           "description":"", 
+                           "purchase_date":"2021-11-11 13:34", 
+                           "price":150,
+                           "image_url":"https://www.dominos.co.in/files/items/Dominator.jpg" 
+                        },
+                        { 
+                            "pid":56548, 
+                            "pname":"Veg-Pizza", 
+                            "description":"This is a veg pizza", 
+                            "purchase_date":"2021-11-21 13:34", 
+                            "price": 100,
+                            "image_url":"https://www.dominos.co.in/files/items/Farmhouse.jpg" 
+                        }, 
+                        { 
+                           "pid":56549, 
+                           "pname":"NVeg-Pizza", 
+                           "description":"This is a non veg pizza", 
+                           "purchase_date":"2021-11-11 13:34", 
+                           "price":150,
+                           "image_url":"https://www.dominos.co.in/files/items/Dominator.jpg" 
+                        },
+                        { 
+                            "pid":56550, 
+                            "pname":"Veg-Pizza", 
+                            "description":"This is a veg pizza", 
+                            "purchase_date":"2021-11-21 13:34", 
+                            "price": 100,
+                            "image_url":"https://www.dominos.co.in/files/items/Farmhouse.jpg" 
+                        }, 
+                        { 
+                           "pid":56551, 
+                           "pname":"NVeg-Pizza", 
+                           "description":"This is a non veg pizza", 
+                           "purchase_date":"2021-11-11 13:34", 
+                           "price":150,
+                           "image_url":"https://www.dominos.co.in/files/items/Dominator.jpg" 
                         }
                         ], 
                     "conflicting": [
